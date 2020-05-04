@@ -1,0 +1,9 @@
+{
+    "date_format": "%Y-%m-%d",
+    "lock_break": false,
+    "notifications": true,
+    "daily_work_minutes": 450,
+    "daily_break_minutes": 30,
+    "filename": "work_hours.csv",
+    "time_format": "%H:%M:%S"
+}
