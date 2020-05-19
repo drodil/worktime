@@ -407,7 +407,7 @@ def add_flex(row_data, flex_date):
     row_data[i][IDX_OT] = str(minutes)
     row_data[i][IDX_TYPE] = 'F'
   else:
-    row_data.append([formatted_date, currenttime, currenttime, str(minutes), 'F', str(CONFIG.daily_break_minutes), str(CONFIG.daily_work_minutes)])
+    row_data.append([formatted_date, currenttime, currenttime, str(minutes), 'F', str(CONFIG.daily_break_minutes), str(CONFIG.daily_work_minutes), 'Ended'])
   return row_data
 
 # Modify start time of the day
@@ -419,7 +419,7 @@ def modify_start(row_data, date, start_time):
   if i >= 0:
     row_data[i][IDX_START] = formatted_time
   else:
-    row_data.append([formatted_date, formatted_time, formatted_time, '00', 'A', str(CONFIG.daily_break_minutes)])
+    row_data.append([formatted_date, formatted_time, formatted_time, '00', 'A', str(CONFIG.daily_break_minutes), str(CONFIG.daily_work_minutes), 'Ended'])
   row_data = calculate_flex(row_data, formatted_date)
   return row_data
 
@@ -433,7 +433,7 @@ def modify_end(row_data, date, end_time):
     row_data[i][IDX_END] = formatted_time
     row_data[i][IDX_TYPE] = 'M'
   else:
-    row_data.append([formatted_date, formatted_time, formatted_time, '00', 'M', str(CONFIG.daily_break_minutes), str(CONFIG.daily_work_minutes)])
+    row_data.append([formatted_date, formatted_time, formatted_time, '00', 'M', str(CONFIG.daily_break_minutes), str(CONFIG.daily_work_minutes), 'Ended'])
   row_data = calculate_flex(row_data, formatted_date)
   return row_data
 
@@ -448,7 +448,7 @@ def add_break(row_data, date, time):
     row_data[i][IDX_BREAK] = str(int(row_data[i][IDX_BREAK]) + time)
   else:
     formatted_time = get_current_time()
-    row_data.append([formatted_date, formatted_time, formatted_time, '00', 'M', str(CONFIG.daily_break_minutes + time), str(CONFIG.daily_work_minutes)])
+    row_data.append([formatted_date, formatted_time, formatted_time, '00', 'M', str(CONFIG.daily_break_minutes + time), str(CONFIG.daily_work_minutes), 'Ended'])
 
   print('Total brakes {} is {} minutes'.format(formatted_date, row_data[i][IDX_BREAK]))
   row_data = calculate_flex(row_data, formatted_date)
