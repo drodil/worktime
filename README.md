@@ -17,51 +17,50 @@ python worktime.py
 
 ### MacOS
 
-1. Copy fi.drodil.worktime.plist file to ~/Library/LaunchAgents
+1. Install worktime
+
+```bash
+python setup.py install
+```
+
+2. Copy fi.drodil.worktime.plist file to ~/Library/LaunchAgents
 
 ```bash
 cp fi.drodil.worktime.plist ~/Library/LaunchAgents
 ```
 
-2. Modify from the plist file the program arguments:
+3. Modify from the plist file the program arguments:
 
 ```bash
 $EDITOR ~/Library/LaunchAgents/fi.drodil.worktime.plist
 ```
 
 ```xml
-<array>
-    <string>python</string>
-    <string>**ABSOLUTE LOCATION OF worktime.py FILE**</string>
-</array>
+<key>UserName</key>
+<string>** YOUR USERNAME **</string>
 ```
 
-3. Authorize the worktime.py to read your current UI session
+4. Authorize the worktime.py to read your current UI session
 
 ```bash
-security authorize -u worktime.py
+which worktime
+security authorize -u /path/to/worktime
 ```
-4. Install worktime
+5. Run the one-time configuration of the tool
 
 ```bash
-python setup.py install
+worktime --config
+worktime --help
 ```
 
-4. Run the one-time configuration of the tool
-
-```bash
-python worktime.py --config
-python worktime.py --help
-```
-
-5. Load the plist to launctl
+6. Load the plist to launctl
 
 ```bash
 cd ~/Library/LaunchAgents
 launchctl load fi.drodil.worktime.plist
 ```
 
-6. Check if the work day starts. Lock your computer and wait for one minute;
+7. Check if the work day starts. Lock your computer and wait for one minute;
    check if the work day ends.
 
 ### Windows
@@ -69,7 +68,7 @@ launchctl load fi.drodil.worktime.plist
 Add scheduled task to run worktime every minute
 
 ```bash
-schtasks /create /tn "Work Time" /sc minute /mo 1 /tr "python <PATH TO THIS REPOSITORY>/worktime.py"
+schtasks /create /tn "Work Time" /sc minute /mo 1 /tr "<PATH TO WORKTIME EXECUTABLE>"
 ```
 
 **NOTE: This is not tested! Might need a batch script**

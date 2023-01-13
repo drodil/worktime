@@ -3,7 +3,9 @@
 <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>fi.drodil.worktime</string>
+	<string>fi.drodil.worktime</string>
+        <key>UserName</key>
+        <string>YourUsername</string>
         <key>ProgramArguments</key>
         <array>
             <string>worktime</string>
