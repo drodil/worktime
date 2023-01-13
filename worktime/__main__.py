@@ -9,6 +9,7 @@ import argparse
 from datetime import datetime
 from datetime import timedelta
 from dateutil import parser as date_parser
+from pathlib import Path
 try:
   # Mac OS only
   import Quartz
@@ -16,6 +17,7 @@ except ImportError:
   # Windows
   import ctypes
 
+HOME_DIR = Path.home()
 SCRIPT_PATH = os.path.dirname(os.path.realpath(__file__))
 
 class Config:
@@ -26,9 +28,9 @@ class Config:
     self.date_format = '%Y-%m-%d'
     self.time_format = '%H:%M:%S'
     self.lock_break = False
-    self.filename = '{}/work_hours.csv'.format(SCRIPT_PATH)
+    self.filename = '{}/work_hours.csv'.format(HOME_DIR)
 
-CONFIG_FILE = '{}/config.json'.format(SCRIPT_PATH)
+CONFIG_FILE = '{}/worktime_config.json'.format(HOME_DIR)
 CONFIG = Config()
 
 START_OF_THE_DAY = '00:00:00'

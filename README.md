@@ -41,6 +41,11 @@ $EDITOR ~/Library/LaunchAgents/fi.drodil.worktime.plist
 ```bash
 security authorize -u worktime.py
 ```
+4. Install worktime
+
+```bash
+python setup.py install
+```
 
 4. Run the one-time configuration of the tool
 
