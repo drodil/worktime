@@ -7,7 +7,7 @@
         <key>ProgramArguments</key>
         <array>
             <string>worktime</string>
-	    <!-- <string>Optional config file</string>-->
+	    <!-- <string>Optional parameters</string>-->
         </array>
         <key>RunAtLoad</key>
         <true/>
