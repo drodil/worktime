@@ -178,7 +178,9 @@ def is_screen_locked():
     return user32.GetForegroundWindow() % 10 == 0
   else:
     data = Quartz.CGSessionCopyCurrentDictionary()
-    return data and data.get('CGSSessionScreenIsLocked', 0) == 1
+    if data is None:
+      return true
+    return data.get('CGSSessionScreenIsLocked', 0) == 1
 
 # Remove headers and footer from csv data
 def remove_headers_and_footer(row_data):
