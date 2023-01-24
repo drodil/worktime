@@ -180,7 +180,7 @@ def is_screen_locked():
     data = Quartz.CGSessionCopyCurrentDictionary()
     if data is None:
       return true
-    return data.get('CGSSessionScreenIsLocked', 0) == 1
+    return data.get('CGSSessionScreenIsLocked', 0) == 1 and data.get('kCGSSessionOnConsoleKey', 0) == 1
 
 # Remove headers and footer from csv data
 def remove_headers_and_footer(row_data):
